@@ -1,0 +1,23 @@
+﻿@model EmployeesMVC.Models.Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <form asp-controller="Employees" asp-action="Create">
+        <label asp-for="Name"> </label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+
+        <label asp-for="Email"> </label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+        <input type="submit" value="Create" />
+    </form>
+
+
+</body>
+</html>
