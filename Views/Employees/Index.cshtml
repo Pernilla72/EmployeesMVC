@@ -1,0 +1,22 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EmployeesMVC.Models.Employee[]
+
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <ul>
+        @foreach (var item in Model)
+    {
+        <li> 
+            @item.Name
+        </li>
+    }
+    
+     </ul>
+
+    </body>
+    </html>
