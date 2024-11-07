@@ -6,11 +6,13 @@ public class Employee
 {
     public int Id { get; set; }
 
+
     [Required(ErrorMessage = "Enter a name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
+
 
     [Display(Name ="E-mail")]
     [EmailAddress(ErrorMessage = "Fel format på mailadressen")]
-
-    public string Email { get; set; }
+    //[Required(ErrorMessage = "Måste fyllas i")]
+    public required string Email { get; set; }
 }

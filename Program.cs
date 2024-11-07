@@ -10,11 +10,8 @@ namespace EmployeesMVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<DataService>();
             var app = builder.Build();
-
-           
+            app.UseStaticFiles();
             app.MapControllers();
-
-
             app.Run();
         }
     }

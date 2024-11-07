@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <h1> SomeOffice</h1>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        &copy; SomeOffice 2024
+    </footer>
+    @RenderSection("scripts", false)
+</body>
+</html>
