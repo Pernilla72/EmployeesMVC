@@ -3,13 +3,27 @@
 @{
     ViewBag.Title = "SomeOffice";
 }
-    <ul>
-        @foreach (var item in Model)
+<div style="background-color: gainsboro; max-width: 500px;">
+<table>
+    
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model)
     {
-        <li> 
-                <td>@item.Name</td>
-                
-        </li>
+        <tr>
+            <td>@item.Name</td>
+        </tr>
     }
-     </ul>
-     <a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
+
+    
+    
+</table>
+</div>
+
+<a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
+
+<partial name="_TimeBox" model="DateTime.Now" />
+    
+    
+    

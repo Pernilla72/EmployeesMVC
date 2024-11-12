@@ -6,10 +6,8 @@ public class Employee
 {
     public int Id { get; set; }
 
-
     [Required(ErrorMessage = "Enter a name")]
     public required string Name { get; set; }
-
 
     [Display(Name ="E-mail")]
     [EmailAddress(ErrorMessage = "Fel format på mailadressen")]
