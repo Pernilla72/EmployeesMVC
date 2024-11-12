@@ -4,11 +4,12 @@ namespace EmployeesMVC.Models;
 
 public class DataService
 {
-    private List<Employee> _employees = [
+    private List<Employee> _employees = 
+        [
         new Employee { Id = 1, Name = "Bo Ek", Email = "bo.ek@email.com"},
         new Employee { Id = 2, Name = "Eva Boo", Email = "eva.boo@email.com"},
-        new Employee { Id = 3, Name = "Ludde Hani", Email = "ludde.hani@email.com"},
-        new Employee { Id = 3, Name = "Leena Holzt", Email = "leena.holzt@email.com"},
+        new Employee { Id = 3, Name = "Ludo Hansi", Email = "ludo.hansi@email.com"},
+        new Employee { Id = 3, Name = "Leena Holzt", Email = "leena.holzt@email.com"}
         ];
 
     int id;

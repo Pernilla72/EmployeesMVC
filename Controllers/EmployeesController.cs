@@ -15,13 +15,14 @@ namespace EmployeesMVC.Controllers
             return View(Model);
         }
 
-        [HttpGet("Create")]
+        [HttpGet("Create")]   //GET skapar ett topt formulär för att skapa en ny employee
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost("Create")]
+        [HttpPost("Create")]  //Tar emot data från sagda formulär, validerar den och om OK, lägger till 
+                              // en ny employee i listan, samt returnerar användaren ill index-sidan.
         public IActionResult Create(Employee employee)
         {
             if (!ModelState.IsValid)
