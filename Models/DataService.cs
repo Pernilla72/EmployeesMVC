@@ -2,7 +2,7 @@
 
 namespace EmployeesMVC.Models;
 
-public class DataService
+public class DataService : IDataService
 {
     private List<Employee> _employees = 
         [

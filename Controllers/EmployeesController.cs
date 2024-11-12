@@ -5,7 +5,12 @@ namespace EmployeesMVC.Controllers
 {
     public class EmployeesController : Controller
     {
-        private static DataService _dataService = new DataService();
+        //private static DataService _dataService = new DataService();
+        private readonly IDataService _dataService;
+        public EmployeesController(IDataService dataService)
+        {
+            _dataService = dataService;
+        }
 
         [HttpGet("")]
 
