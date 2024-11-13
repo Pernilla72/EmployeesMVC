@@ -1,10 +1,14 @@
-﻿using System.Net.Mail;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
 
 namespace EmployeesMVC.Models;
 
 public class DataService : IDataService
 {
-    private List<Employee> _employees = 
+
+    
+
+        private List<Employee> _employees = 
         [
         new Employee { Id = 1, Name = "Bo Ek", Email = "bo.ek@email.com"},
         new Employee { Id = 2, Name = "Eva Boo", Email = "eva.boo@email.com"},
