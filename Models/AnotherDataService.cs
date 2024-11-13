@@ -1,6 +1,6 @@
 ﻿namespace EmployeesMVC.Models
 {
-    public class AnotherDataService :IDataService
+    public class AnotherDataService /*:IDataService*/
     {
         private List<Employee> _employees =
         [

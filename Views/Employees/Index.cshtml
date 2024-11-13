@@ -3,16 +3,19 @@
 @{
     ViewBag.Title = "SomeOffice";
 }
-<div style="background-color: gainsboro; max-width: 500px;">
-<table>
-    
+<div style="background-color: gainsboro; max-width: 1000px;">
+<table>    
     <tr>
         <th>Name</th>
+        <th>Email</th>
+        <th>Andra hem</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Company?.Name</td>
         </tr>
     }
 

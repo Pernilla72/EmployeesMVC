@@ -1,4 +1,5 @@
 using EmployeesMVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeesMVC
 {
@@ -7,9 +8,12 @@ namespace EmployeesMVC
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<ApplicationDBContext>(o => o.UseSqlServer(connString));
             builder.Services.AddControllersWithViews();
             //builder.Services.AddTransient<IDataService, DataService>();
-            builder.Services.AddSingleton<IDataService, DataService>();
+            builder.Services.AddScoped<IDataService, DataService>();
+
             //builder.Services.AddSingleton<IDataService, AnotherDataService>();
             var app = builder.Build();
             app.UseStaticFiles();
