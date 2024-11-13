@@ -8,7 +8,9 @@ namespace EmployeesMVC
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<DataService>();
+            //builder.Services.AddTransient<IDataService, DataService>();
+            builder.Services.AddSingleton<IDataService, DataService>();
+            //builder.Services.AddSingleton<IDataService, AnotherDataService>();
             var app = builder.Build();
             app.UseStaticFiles();
             app.MapControllers();
