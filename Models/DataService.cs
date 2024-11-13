@@ -32,6 +32,13 @@ public class DataService : IDataService
             return _context.Companies.Include(c => c.Employees);
         }
     }
+    public IEnumerable<Employee> Employees
+    {
+        get
+        {
+            return _context.Employees.Include(c => c.Company);
+        }
+    }
     public async Task AddAsync(Employee employee)
     {
         //employee.Id = _context.Employees.Max(e => e.Id) +1;
