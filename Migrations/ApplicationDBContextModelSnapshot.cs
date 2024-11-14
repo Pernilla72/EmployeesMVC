@@ -102,12 +102,6 @@ namespace EmployeesMVC.Migrations
                             CompanyId = 2,
                             Email = "leena.holzt@email.com",
                             Name = "Leena Holzt"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Email = "ann.ahl@email.com",
-                            Name = "Ann Ahl"
                         });
                 });
 
