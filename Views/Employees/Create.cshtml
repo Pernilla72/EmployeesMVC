@@ -1,11 +1,16 @@
 ﻿@model Employee
 
 @{
-    ViewBag.Title = "Add new employee";
+    ViewBag.Title = "Lägg till arbetstagare";
 }
 
+
+
+<div style="display: flex; max-width: 1000px; margin: 50px">
+    
     <partial name ="_TimeBox" model="DateTime.Now" />
-<div style="max-width: 1000px;">
+    
+
     <form asp-controller="Employees" asp-action="Create">
         <label asp-for="Name"> </label>
         <input asp-for="Name" />

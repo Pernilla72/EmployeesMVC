@@ -23,7 +23,7 @@ namespace EmployeesMVC.Controllers
             return View(Model);
         }
 
-        [HttpGet("Create")]   //GET skapar ett topt formulär för att skapa en ny employee
+        [HttpGet("Create")]   //GET skapar ett tomt formulär för att skapa en ny employee
         public IActionResult Create()
         {
             var companies = _dataService.Companies.ToList();
