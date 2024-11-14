@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeesMVC.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241113131059_addedOnModelBuild")]
-    partial class addedOnModelBuild
+    [Migration("20241114080642_addedOnModelCreate")]
+    partial class addedOnModelCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,12 +105,6 @@ namespace EmployeesMVC.Migrations
                             CompanyId = 2,
                             Email = "leena.holzt@email.com",
                             Name = "Leena Holzt"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Email = "ann.ahl@email.com",
-                            Name = "Ann Ahl"
                         });
                 });
 

@@ -7,7 +7,7 @@
 namespace EmployeesMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class addedOnModelBuild : Migration
+    public partial class addedOnModelCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,6 @@ namespace EmployeesMVC.Migrations
                 values: new object[,]
                 {
                     { 1, null, "bo.ek@email.com", "Bo Ek" },
-                    { 5, null, "ann.ahl@email.com", "Ann Ahl" },
                     { 2, 1, "eva.boo@email.com", "Eva Boo" },
                     { 3, 1, "ludo.hansi@email.com", "Ludo Hansi" },
                     { 4, 2, "leena.holzt@email.com", "Leena Holzt" }
@@ -56,11 +55,6 @@ namespace EmployeesMVC.Migrations
                 table: "Employees",
                 keyColumn: "Id",
                 keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Employees",
-                keyColumn: "Id",
-                keyValue: 5);
 
             migrationBuilder.DeleteData(
                 table: "Companies",
