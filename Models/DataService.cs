@@ -7,23 +7,13 @@ namespace EmployeesMVC.Models;
 //att anropa SaveChanges() för att persistera förändringar till databasen)
 //b) Den gamla listan kan nu raderas (eller kommenteras ut )
 //c) Kör applikationen – allt bör nu fungera som tidigare, förutom att datan nu lagras i en databas istället för listan 
-public class DataService : IDataService
+public class DataService(ApplicationDBContext _context) : IDataService
 {
-
-    ApplicationDBContext _context;
-
-    public DataService(ApplicationDBContext context)
-    {
-        this._context = context;
-    }
-
-    //private List<Employee> _employees = 
-    //[
-    //new Employee { Id = 1, Name = "Bo Ek", Email = "bo.ek@email.com"},
-    //new Employee { Id = 2, Name = "Eva Boo", Email = "eva.boo@email.com"},
-    //new Employee { Id = 3, Name = "Ludo Hansi", Email = "ludo.hansi@email.com"},
-    //new Employee { Id = 3, Name = "Leena Holzt", Email = "leena.holzt@email.com"}
-    //];
+    //ApplicationDBContext _context;
+    //public DataService(ApplicationDBContext context)
+    //{
+    //    this._context = context;
+    //}
 
     public IEnumerable<Company> Companies
     {

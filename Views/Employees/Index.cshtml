@@ -1,32 +1,33 @@
 ﻿@model Employee[]
 
-@{                                      //Detta är koden som visas i @RenderBody
+@{
+    //Detta är koden som visas i @RenderBody
     ViewBag.Title = "SomeOffice";
 }
 <div style="background-color: gainsboro; max-width: 1000px;">
-<table>    
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Andra hem</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <table>
         <tr>
-            <td>@item.Name</td>
-            <td>@item.Email</td>
-            <td>@item.Company?.Name</td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Andra hem</th>
         </tr>
-    }
-       
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Company?.Name</td>
+            </tr>
+        }
 
-    
+    </table>
+
+
 </div>
 <a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
 
 
 <partial name="_TimeBox" model="DateTime.Now" />
-    
-    
-    
+
+
+

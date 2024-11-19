@@ -4,10 +4,10 @@
     {
         private List<Employee> _employees =
         [
-        new Employee { Id = 1, Name = "Lo Ek", Email = "lo.ek@email.com"},
-        new Employee { Id = 2, Name = "Steva Boo", Email = "steva.boo@email.com"},
-        new Employee { Id = 3, Name = "Ludde Hansi", Email = "ludde.hansi@email.com"},
-        new Employee { Id = 3, Name = "Lee Holzt", Email = "lee.holzt@email.com"}
+        //new Employee { Id = 1, Name = "Lo Ek", Email = "lo.ek@email.com"},
+        //new Employee { Id = 2, Name = "Steva Boo", Email = "steva.boo@email.com"},
+        //new Employee { Id = 3, Name = "Ludde Hansi", Email = "ludde.hansi@email.com"},
+        //new Employee { Id = 3, Name = "Lee Holzt", Email = "lee.holzt@email.com"}
         ];
 
         int id;

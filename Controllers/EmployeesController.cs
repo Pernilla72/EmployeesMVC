@@ -1,22 +1,12 @@
 ﻿using EmployeesMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace EmployeesMVC.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeesController(IDataService _dataService) : Controller
     {
-        //private static DataService _dataService = new DataService();
-        private readonly IDataService _dataService;
-        
-        public EmployeesController(IDataService dataService)
-        {
-            _dataService = dataService;
-        }
-
         [HttpGet("")]
-
         public async Task<IActionResult> IndexAsync()
         {
             var Model = await _dataService.GetAllAsync();
@@ -42,7 +32,7 @@ namespace EmployeesMVC.Controllers
                 employee.CompanyId = null;
 
             _dataService.AddAsync(employee);
-                return RedirectToAction(nameof(IndexAsync).Replace("Async", string.Empty));
+            return RedirectToAction(nameof(IndexAsync).Replace("Async", string.Empty));
         }
     }
 }

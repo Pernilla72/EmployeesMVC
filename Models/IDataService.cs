@@ -4,9 +4,9 @@
     {
         IEnumerable<Company> Companies { get; }
         IEnumerable<Employee> Employees { get; }
-        Task<Employee[]>GetAllAsync();
+        Task<Employee[]> GetAllAsync();
 
-        Task <Employee> GetByIdAsync(int id);
+        Task<Employee> GetByIdAsync(int id);
 
         Task AddAsync(Employee employee);
     }

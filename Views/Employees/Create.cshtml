@@ -7,9 +7,9 @@
 
 
 <div style="display: flex; max-width: 1000px; margin: 50px">
-    
-    <partial name ="_TimeBox" model="DateTime.Now" />
-    
+
+    <partial name="_TimeBox" model="DateTime.Now" />
+
 
     <form asp-controller="Employees" asp-action="Create">
         <label asp-for="Name"> </label>
@@ -18,13 +18,13 @@
 
         <label asp-for="Email"> </label>
         <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>  
+        <span asp-validation-for="Email"></span>
 
         <label asp-for="CompanyId"> </label>
         <select asp-for="CompanyId" asp-items="ViewBag.CompanyList">
             <option value="">-- Välj företag --</option>
             <option value="">Arbetslös!</option>
-            
+
 
         </select>
         <span asp-validation-for="CompanyId"></span>
@@ -34,15 +34,15 @@
 
     </form>
 </div>
-    
 
-    @section scripts
+
+@section scripts
     {
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js" 
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"
             asp-fallback-src="/scripts/jquery-3.7.1.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"
             asp-fallback-src="/scripts/jquery.validate.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"
             asp-fallback-src="/scripts/jquery.validate.unobtrusive.min.js"></script>
-    }
+}
 
