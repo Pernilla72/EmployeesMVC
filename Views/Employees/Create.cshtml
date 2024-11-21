@@ -1,10 +1,8 @@
-﻿@model Employee
+﻿@model CreateVM
 
 @{
     ViewBag.Title = "Lägg till arbetstagare";
 }
-
-
 
 <div style="display: flex; max-width: 1000px; margin: 50px">
 
@@ -20,10 +18,14 @@
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
 
+        <label asp-for="BotChecked"></label>
+        <input asp-for="BotChecked"/>
+        <span asp-validation-for="BotChecked"></span>
+
         <label asp-for="CompanyId"> </label>
         <select asp-for="CompanyId" asp-items="ViewBag.CompanyList">
             <option value="">-- Välj företag --</option>
-            <option value="">Arbetslös!</option>
+            <option value="null">Arbetslös!</option>
 
 
         </select>

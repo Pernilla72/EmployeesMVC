@@ -1,13 +1,17 @@
-﻿namespace EmployeesMVC.Models
+﻿using EmployeesMVC.Views.Employees;
+
+namespace EmployeesMVC.Models;
+
+public interface IDataService
 {
-    public interface IDataService
-    {
-        IEnumerable<Company> Companies { get; }
-        IEnumerable<Employee> Employees { get; }
-        Task<Employee[]> GetAllAsync();
+    IEnumerable<Company> Companies { get; }
+    IEnumerable<Employee> Employees { get; }
 
-        Task<Employee> GetByIdAsync(int id);
+    Task<IndexVM> GetAllAsync();
 
-        Task AddAsync(Employee employee);
-    }
+    Task<Employee> GetByIdAsync(int id);
+
+    Task AddAsync(CreateVM createVM);
+
+    //Employee MapToEmployee(CreateVM createVM);
 }

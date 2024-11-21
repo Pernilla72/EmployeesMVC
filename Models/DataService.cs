@@ -1,47 +1,70 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.IO.Pipelines;
+﻿using EmployeesMVC.Views.Employees;
+using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.Design;
 
 namespace EmployeesMVC.Models;
-
-//a) Uppdatera metoderna till att arbeta mot den kontext-klass som nu injiceras i konsturktorn istället för mot den gamla listan (kom ihåg
-//att anropa SaveChanges() för att persistera förändringar till databasen)
-//b) Den gamla listan kan nu raderas (eller kommenteras ut )
-//c) Kör applikationen – allt bör nu fungera som tidigare, förutom att datan nu lagras i en databas istället för listan 
 public class DataService(ApplicationDBContext _context) : IDataService
 {
-    //ApplicationDBContext _context;
-    //public DataService(ApplicationDBContext context)
+    //private readonly ApplicationDBContext _context;
+
+    //public DataService(
     //{
-    //    this._context = context;
+    //    _context = context;
     //}
 
-    public IEnumerable<Company> Companies
+    public IEnumerable<Company> Companies => _context.Companies
+        .Include(c => c.Employees);
+
+    public IEnumerable<Employee> Employees => _context.Employees
+        .Include(e => e.Company);
+    //public Employee MapToEmployee(CreateVM createVM) => new Employee
+    //{
+    //    Name = createVM.Name,
+    //    Email = createVM.Email,
+    //    CompanyId = createVM.CompanyId
+    //};
+    public async Task AddAsync(CreateVM createVM)
     {
-        get
+        var employee = new Employee
         {
-            return _context.Companies.Include(c => c.Employees);
-        }
-    }
-    public IEnumerable<Employee> Employees
-    {
-        get
-        {
-            return _context.Employees.Include(c => c.Company);
-        }
-    }
-    public async Task AddAsync(Employee employee)
-    {
+            Name = createVM.Name,
+            Email = createVM.Email,
+            CompanyId = createVM.CompanyId,
+        };
+
         //employee.Id = _context.Employees.Max(e => e.Id) +1;
         _context.Employees.Add(employee);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Employee[]> GetAllAsync()
+    public async Task<IndexVM> GetAllAsync()
     {
-        return await _context.Employees
-            .Include(c => c.Company)
-            .ToArrayAsync();
+        var ret = new IndexVM()
+        {
+            EmployeePersons = await _context.Employees
+                .Select(e => new IndexVM.EmployeePersonVM()
+                {
+                    Name = e.Name,
+                    Email = e.Email,
+                    CompanyName = e.Company.Name,
+                })
+                .OrderBy(e => e.Name)
+                .ThenBy(e => e.Email)
+                .ToArrayAsync()
+        };
+        ret.ItemCount = ret.EmployeePersons.Count();
+        return ret;
+    }
+        
+
+    public async Task<Employee> GetByIdAsync(int id)
+    {
+       var employee = await _context.Employees.SingleOrDefaultAsync(e => e.Id == id);
+        if (employee == null)
+            throw new KeyNotFoundException($"Employee with ID {id} not found");
+        return employee;
     }
 
-    public async Task<Employee> GetByIdAsync(int id) => await _context.Employees.SingleOrDefaultAsync(e => e.Id == id);
+   
 }

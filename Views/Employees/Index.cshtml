@@ -1,28 +1,26 @@
-﻿@model Employee[]
+﻿@model IndexVM
 
 @{
     //Detta är koden som visas i @RenderBody
     ViewBag.Title = "SomeOffice";
 }
 <div style="background-color: gainsboro; max-width: 1000px;">
+    <h2>All persons listed (@Model.ItemCount)</h2>
     <table>
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Andra hem</th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.EmployeePersons)
         {
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Email</td>
-                <td>@item.Company?.Name</td>
+                <td>@item.CompanyName</td>
             </tr>
         }
-
     </table>
-
-
 </div>
 <a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
 
