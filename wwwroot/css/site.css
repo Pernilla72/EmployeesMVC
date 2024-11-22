@@ -1,13 +1,86 @@
 ﻿
-.table {
+#IndexView {
+    display: flex;
+    margin: 0 auto;
     width: 100%;
     border-collapse: collapse;
-}
-
-body {
     display: flex;
+    align-content: flex-start;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägg till en skugga */
+}
+    #IndexView th {
+        background-color: #5b563c;
+        color: white;
+    }
+    #IndexView a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    #IndexView a:hover {
+        background-color: #45a049;
+    }
+
+    #IndexView h2, h4 {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        margin-top: 20px; /* Lägg avstånd ovanför */
+        width: 100%;
+    }
+
+    #IndexView footer {
+        display: block;
+        clear: both;
+        float: none;
+        margin-top: 20px;
+    }
+
+
+
+#CreateView {
+    display: flex;
+    display: table-column;
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    align-content: flex-start;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 10px;
+    padding: 10px;
+}
+.header {
+
+}
+
+
+.background {
+    color: gainsboro; 
+    max-width: 1000px;
+}
+
+.body {
+    display: flex;
+    align-content:flex-start;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 10px;
+    padding: 10px;
+}
+
+div {
+    display: flex;
     margin: 10px;
     padding: 10px;
 }
@@ -20,4 +93,6 @@ h1 {
 a {
     align-items: center;
 }
+
+
 

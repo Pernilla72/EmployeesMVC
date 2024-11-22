@@ -21,6 +21,5 @@ public class ApplicationDBContext(DbContextOptions<ApplicationDBContext> options
             new Company { Id = 1, Name = "Företaget" },
             new Company { Id = 2, Name = "Andra företaget" }
             );
-
     }
 }

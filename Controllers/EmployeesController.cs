@@ -21,7 +21,7 @@ namespace EmployeesMVC.Controllers
         public IActionResult Create()
         {
             var companies = _dataService.Companies.ToList();
-            ViewBag.CompanyList = new SelectList(companies, "Id", "Name");
+            ViewBag.CompanyList = new SelectList(_dataService.Companies, "Id", "Name");
             return View();
         }
 

@@ -1,30 +1,18 @@
 ﻿using EmployeesMVC.Views.Employees;
-using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.Design;
 
 namespace EmployeesMVC.Models;
 public class DataService(ApplicationDBContext _context) : IDataService
 {
-    //private readonly ApplicationDBContext _context;
-
-    //public DataService(
-    //{
-    //    _context = context;
-    //}
 
     public IEnumerable<Company> Companies => _context.Companies
         .Include(c => c.Employees);
 
     public IEnumerable<Employee> Employees => _context.Employees
         .Include(e => e.Company);
-    //public Employee MapToEmployee(CreateVM createVM) => new Employee
-    //{
-    //    Name = createVM.Name,
-    //    Email = createVM.Email,
-    //    CompanyId = createVM.CompanyId
-    //};
-    public async Task AddAsync(CreateVM createVM)
+    
+
+    public async Task AddAsync(CreateVM createVM)   //Lägg till/Create ny Employee
     {
         var employee = new Employee
         {
@@ -32,13 +20,11 @@ public class DataService(ApplicationDBContext _context) : IDataService
             Email = createVM.Email,
             CompanyId = createVM.CompanyId,
         };
-
-        //employee.Id = _context.Employees.Max(e => e.Id) +1;
         _context.Employees.Add(employee);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IndexVM> GetAllAsync()
+    public async Task<IndexVM> GetAllAsync()   //Hämta/Visa alla Employee
     {
         var ret = new IndexVM()
         {
@@ -56,7 +42,6 @@ public class DataService(ApplicationDBContext _context) : IDataService
         ret.ItemCount = ret.EmployeePersons.Count();
         return ret;
     }
-        
 
     public async Task<Employee> GetByIdAsync(int id)
     {
@@ -65,6 +50,4 @@ public class DataService(ApplicationDBContext _context) : IDataService
             throw new KeyNotFoundException($"Employee with ID {id} not found");
         return employee;
     }
-
-   
 }

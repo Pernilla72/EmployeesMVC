@@ -4,8 +4,11 @@
     //Detta är koden som visas i @RenderBody
     ViewBag.Title = "SomeOffice";
 }
-<div style="background-color: gainsboro; max-width: 1000px;">
-    <h2>All persons listed (@Model.ItemCount)</h2>
+<div id="IndexView"> 
+    <header>
+    <h2>Employed</h2>
+        <h4>(@Model.ItemCount)</h4>
+    </header>
     <table>
         <tr>
             <th>Name</th>
@@ -21,11 +24,13 @@
             </tr>
         }
     </table>
+    <footer>
+
+        <a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
+
+        <partial name="_TimeBox" model="DateTime.Now" />
+    </footer>
 </div>
-<a asp-controller="Employees" asp-action="Create">Skapa Ny anställd</a>
-
-
-<partial name="_TimeBox" model="DateTime.Now" />
 
 
 

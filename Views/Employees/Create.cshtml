@@ -4,7 +4,7 @@
     ViewBag.Title = "Lägg till arbetstagare";
 }
 
-<div style="display: flex; max-width: 1000px; margin: 50px">
+<div style="display: flex; max-width: 1000px; margin: 50px" id="CreateView">
 
     <partial name="_TimeBox" model="DateTime.Now" />
 
@@ -25,7 +25,7 @@
         <label asp-for="CompanyId"> </label>
         <select asp-for="CompanyId" asp-items="ViewBag.CompanyList">
             <option value="">-- Välj företag --</option>
-            <option value="null">Arbetslös!</option>
+            <option value="">Arbetslös!</option>
 
 
         </select>
